@@ -4,19 +4,19 @@ class ReportsController < ApplicationController
   before_filter :load_teams, except: :current_user_los
 
   def current_user_teams_los
-    @teams = current_user.teams
+    @teams = current_user.teams.asc(:name)
   end
 
   def current_user_created_teams
   end
 
   def los_from_team
-    @los = @teams.find(params[:team_id]).los
+    @los = @teams.find(params[:team_id]).los.asc(:name)
   end
 
   def learners_and_los_from_team
     team = @teams.find(params[:team_id])
-    @los = team.los
+    @los = team.los.asc(:name)
     @learners = team.users.asc(:name)
   end
 
@@ -59,6 +59,6 @@ class ReportsController < ApplicationController
   end
 private
   def load_teams
-    @teams = current_user.admin? ? Team.all : current_user.owner_teams
+    @teams = current_user.admin? ? Team.all.asc(:name) : current_user.owner_teams.asc(:name)
   end
 end
