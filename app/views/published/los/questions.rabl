@@ -1,6 +1,6 @@
 attributes :id, :title, :content, :exp_variables, :many_answers, :eql_sinal
 
-node(:test) {|question| @user.name }
+#node(:test, if: lambda { |question| @user }) { |question| @user.name }
 
 node :last_answer,
   if: lambda { |question| question.has_last_answer?(@user, @team)} do |question|

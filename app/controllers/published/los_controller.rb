@@ -19,7 +19,7 @@ class Published::LosController < ApplicationController
       @user = User.find(params[:learner_id])
       @team = Team.find(params[:team_id]) if params[:team_id]
     else
-      @user = current_user
+      @user = current_or_guest_user
       clear_user_temp_answers
       @team = current_user.teams.find(params[:team_id]) if params[:team_id]
     end
