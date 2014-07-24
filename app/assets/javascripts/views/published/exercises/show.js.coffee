@@ -10,6 +10,7 @@ class Carrie.Published.Views.Exercise extends Backbone.Marionette.CompositeView
 
   itemViewOptions: ->
     team_id: @options.team_id
+    canAnswer: @options.canAnswer
 
   initialize: ->
     @collection = @model.get('questions')

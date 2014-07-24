@@ -24,6 +24,7 @@ class Published::LosController < ApplicationController
       @team = current_user.teams.find(params[:team_id]) if params[:team_id]
     end
     @lo = Lo.includes(:introductions, :exercises).find(params[:id])
+    @can_answer = check_if_can_answer
   end
 
 private
@@ -31,5 +32,13 @@ private
     answers = current_user.answers.or({team_id: nil}, {to_test: true})
     answers.destroy_all
     TipsCount.where(user_id: current_user.id, team_id: nil).destroy_all
+  end
+
+  def check_if_can_answer
+    if @team && @team.available? && @team.user_ids.include?(current_user.id)
+      return true
+    end
+    return true if current_user.lo_ids.include?(@lo.id) || current_user.admin?
+    return false
   end
 end

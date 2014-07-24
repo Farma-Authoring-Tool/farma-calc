@@ -3,6 +3,7 @@ glue @lo do
 
   node(:pages_count) { |lo| lo.pages_count }
   node(:pages) {|lo| lo.pages_with_name}
+  node(:canAnswer) { @can_answer }
 
   node(:completeness, :if => lambda { |el| not(@team.nil?) } ) do |lo|
     @user.completeness_of(@team, lo)

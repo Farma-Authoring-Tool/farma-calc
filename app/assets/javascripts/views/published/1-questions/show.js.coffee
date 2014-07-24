@@ -19,15 +19,19 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
 
   verify_answer: (ev) ->
     ev.preventDefault()
-    keyboard = new Carrie.Views.VirtualKeyBoard(
-      currentResp: @view.resp()
-      variables: @model.get('exp_variables')
-      many_answers: @model.get('many_answers')
-      eql_sinal: @model.get('eql_sinal')
-      callback: (val) =>
-        @sendAnswer(val)
-    ).render().el
-    $(keyboard).modal('show')
+    # Allow answer only if user is owner or team member when team is open
+    if @options.canAnswer
+      keyboard = new Carrie.Views.VirtualKeyBoard(
+        currentResp: @view.resp()
+        variables: @model.get('exp_variables')
+        many_answers: @model.get('many_answers')
+        eql_sinal: @model.get('eql_sinal')
+        callback: (val) =>
+          @sendAnswer(val)
+      ).render().el
+      $(keyboard).modal('show')
+    else
+      alert('Não disponível para envio de respostas')
 
   sendAnswer: (resp) ->
     answer = new Carrie.Models.Answer
