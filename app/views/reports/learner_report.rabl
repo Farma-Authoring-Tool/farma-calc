@@ -24,6 +24,7 @@ node :questions_answer do
           response: (answer.nil? ? 'Não respondido' : "$#{answer.response}$"),
           correct: (answer.nil? ? 'Não respondido' : (answer.correct ? 'Sim' : 'Não')),
           attempt_number: (answer.nil? ? 'Não respondido' : answer.attempt_number),
+          created_at: (answer.nil? ? 'Não respondido' : l(answer.created_at))
       }
     end
   end
