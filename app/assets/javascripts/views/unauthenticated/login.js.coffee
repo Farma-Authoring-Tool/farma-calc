@@ -25,7 +25,11 @@ class Carrie.Views.Unauthenticated.Login extends Backbone.Marionette.ItemView
         el.find('input.btn-primary').button('reset')
         Carrie.currentUser = new Carrie.Models.User(response)
         # Carrie.vent.trigger("authentication:logged_in")
-        url = "/#{Carrie.Helpers.Session.pageBeforeLogin}" || '/dashboard'
+        if Carrie.Helpers.Session.pageBeforeLogin
+          url = "/#{Carrie.Helpers.Session.pageBeforeLogin}"
+        else
+          url = '/dashboard'
+
         # TODO: Change for experiment
         window.location = url # to reload the page
         # Backbone.history.navigate url, true
