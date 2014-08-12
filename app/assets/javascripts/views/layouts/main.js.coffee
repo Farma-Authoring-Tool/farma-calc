@@ -59,8 +59,19 @@ class Carrie.Views.Layouts.Main extends Backbone.Marionette.Layout
 
     $(@menu).find('a[data-toggle="tooltip"]').tooltip()
 
+    # TODO: Change for experiment
+    if $('body').data('control-group') == true
+      $(@el).find('[data-hide="true"]').remove()
+    # ---
+
   showView: (ev) ->
     ev.preventDefault()
+
+    # TODO: Change for experiment
+    if $('body').data('control-group') == true
+      $(@el).find('[data-hide="true"]').remove()
+    # ---
+
     #if not $(ev.target).parent().hasClass('active')
     Backbone.history.navigate $(ev.target).data('url'), true
 

@@ -64,7 +64,7 @@ class Carrie.Published.Views.LoPaginator extends Backbone.Marionette.ItemView
     else
       view = new Carrie.Published.Views.Exercise
         model: @model.get('exercises').at(@pageCollection())
-        team: @team_id
+        team_id: @team_id
         retroaction_id: @retroaction_id
         canAnswer: @model.get('canAnswer')
 

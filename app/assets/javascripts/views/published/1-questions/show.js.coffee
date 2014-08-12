@@ -66,13 +66,17 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
 
   renderQuestionAnswers: ->
     if @options.team_id # just show for a OA published in a team
-      @answersView = new Carrie.Published.CompositeViews.QuestionAnswers
-        question_id: @model.get('id')
-      $(@el).find("#question-#{@model.get('id')}-answers").html @answersView.render().el
+     # TODO: Added if for experiment
+      if $('body').data('control-group') != true
+        @answersView = new Carrie.Published.CompositeViews.QuestionAnswers
+          question_id: @model.get('id')
+        $(@el).find("#question-#{@model.get('id')}-answers").html @answersView.render().el
 
   addModelToAnswersView: (model) ->
     if @options.team_id # just add for OA published in a team
-      @answersView.addAnswer(model)
+      # TODO: Added if for experiment
+      if $('body').data('control-group') != true
+        @answersView.addAnswer(model)
 
   updateProgressBar: (model) ->
     if model.get('completeness')

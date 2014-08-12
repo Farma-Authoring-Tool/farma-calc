@@ -5,4 +5,14 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
     markdown.render(text).html_safe
   end
+
+  # Method added for experiment
+  def user_belongs_to_control_group
+    return false if current_user.nil?
+    teams_id = [ Moped::BSON::ObjectId.from_string("53ea0efe454cd9a532000001")]
+    teams_id.each do |id|
+      return true if current_user.team_ids.include?(id)
+    end
+    return false
+  end
 end

@@ -58,6 +58,13 @@ task :send_message_mailing => :environment do
   ids.delete(user_id)
   ids.each do |id|
     user = User.find(id)
+    # Method added for experiment
+    #if user
+    #  teams_id = [ Moped::BSON::ObjectId.from_string("53ea0efe454cd9a532000001")]
+    #  teams_id.each do |t_id|
+    #    next if user.team_ids.include?(t_id)
+    #  end
+    #end
     CommentMailer.send_message(answer, user, url, "collegue_learner").deliver
   end
 end
