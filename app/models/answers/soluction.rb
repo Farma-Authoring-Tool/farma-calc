@@ -10,6 +10,7 @@ class Answers::Soluction
   field :correct, type: Boolean
   field :to_test, type: Boolean, default: false
   field :attempt_number, type: Integer
+  field :comment_count, type: Integer, default: 0
 
   index({ to_test: 1}, {background: true})
   index({ to_test: 1, correct: 1}, {background: true})

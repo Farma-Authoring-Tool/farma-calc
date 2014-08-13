@@ -1,6 +1,7 @@
 class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::MagicCounterCache
 
   embedded_in :commentable, :polymorphic => true, :inverse_of => :comments
 
@@ -13,6 +14,8 @@ class Comment
   validates_presence_of :text, :user_id
 
   default_scope order_by([:created_at, :asc])
+
+  counter_cache :answers_soluction
 
   def user
     @user ||= User.find(self.user_id)

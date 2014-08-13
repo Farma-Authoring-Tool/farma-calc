@@ -1,5 +1,12 @@
 namespace :db do
 
+  desc "update comments counter cache "
+  task :update_counter_cache_for_comments => :environment do
+    Answers::Soluction.every.each do |an|
+      an.update_attribute(:comment_count, an.comments.size)
+    end
+  end
+
   desc "fix database because tipsCounts for test answers"
   task :fixed_tips_count => :environment do
     LastAnswer.each do |la|

@@ -27,6 +27,8 @@ gem 'whenever', require: false
 gem 'request-log-analyzer', require: false
 gem 'timelineJS-rails', '~> 1.1.5'
 
+gem 'mongoid_magic_counter_cache' # https://github.com/jah2488/mongoid-magic-counter-cache
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.1'

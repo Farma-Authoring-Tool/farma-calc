@@ -176,6 +176,9 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
+    mongoid_magic_counter_cache (1.1.0)
+      mongoid
+      rake
     moped (1.5.0)
     multi_json (1.9.2)
     net-scp (1.1.0)
@@ -328,6 +331,7 @@ DEPENDENCIES
   math_engine!
   mongoid (~> 3.1.0)
   mongoid-paperclip
+  mongoid_magic_counter_cache
   pry-rails
   rabl
   railroady
