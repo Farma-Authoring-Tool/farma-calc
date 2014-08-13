@@ -1,3 +1,4 @@
+# encoding: utf-8
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -70,5 +71,18 @@ class User
   def self.guest
     @user ||= User.where(email: 'guest@farma.mat.br').first
     return @user
+  end
+
+  def active_for_authentication?
+    teams_id = APP_CONFIG[:experiment][:access_group]
+    teams_id.each do |id|
+      id = Moped::BSON::ObjectId.from_string(id)
+      return false if self.team_ids.include?(id)
+    end
+    true
+  end
+
+  def inactive_message
+    "Olá, aguarde até a próxima aula para acessar o OA e continuar a resolver as atividades propostas."
   end
 end

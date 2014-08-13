@@ -9,8 +9,9 @@ module ApplicationHelper
   # Method added for experiment 53e9fa9f759b743c2d00002f
   def user_belongs_to_control_group
     return false if current_user.nil?
-    teams_id = [ Moped::BSON::ObjectId.from_string("53e9fa9f759b743c2d00002f")]
+    teams_id = APP_CONFIG[:experiment][:control_group]
     teams_id.each do |id|
+      id = Moped::BSON::ObjectId.from_string(id)
       return true if current_user.team_ids.include?(id)
     end
     return false

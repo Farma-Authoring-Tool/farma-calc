@@ -60,8 +60,9 @@ task :send_message_mailing => :environment do
     user = User.find(id)
     # Method added for experiment #53e9fa9f759b743c2d00002f
     if user
-      teams_id = [ Moped::BSON::ObjectId.from_string("53e9fa9f759b743c2d00002f")]
+      teams_id = APP_CONFIG[:experiment][:control_group]
       teams_id.each do |t_id|
+        t_id = Moped::BSON::ObjectId.from_string(t_id)
         next if user.team_ids.include?(t_id)
       end
     end
