@@ -14,4 +14,4 @@ node(:lo) {|an| an.lo.name}
 node(:exercise) {|an| an.exercise.title}
 node(:question) {|an| an.question.title}
 
-node(:comments_size) {|an| an.comments.size}
+node(:comments_size) {|an| an.comment_count}

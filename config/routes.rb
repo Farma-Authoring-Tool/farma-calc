@@ -19,6 +19,8 @@ Carrie::Application.routes.draw do
     match '/lo-contents/:id' => "lo_contents#index", via: :get
     match '/lo-contents/:id/sort' => "lo_contents#sort", via: :post
 
+    match 'last_comments_answers' => "dashboard#last_comments_answers", via: :get
+
     # Reports filters
     match '/reports/my-created-teams' => "reports#current_user_created_teams", via: :get
     match '/reports/teams/:team_id/los' => "reports#los_from_team", via: :get
