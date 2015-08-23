@@ -61,7 +61,7 @@ development:
 test:
   sessions:
     default:
-      database: carrie_test
+      database: farma_test
       hosts:
         - localhost:27017
       options:
@@ -71,7 +71,7 @@ test:
 production:
   sessions:
     default:
-      database: farma_production_2014_3
+      database: farma_production
       hosts:
         - localhost:27017
       options:

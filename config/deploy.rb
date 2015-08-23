@@ -1,17 +1,17 @@
-set :rvm_ruby_string, 'ruby-1.9.3-p0@farma'
+set :rvm_ruby_string, 'ruby-1.9.3-p551@farma'
 
-server "173.246.40.9", :web, :app, :db, primary: true
+server "45.55.34.225", :web, :app, :db, primary: true
 
 set :user, "apps"
-set :application, "farma.marczal.com"
-set :deploy_to, "/home/#{user}/rails_apps/#{application}"
+set :application, "farma.educacional.mat.br"
+set :deploy_to, "/home/#{user}/apps/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
 set :repository, "/home/#{user}/repos/#{application}.git"
-set :local_repository, "#{user}@173.246.40.9:/home/#{user}/repos/#{application}.git"
-set :branch, "master"
+set :local_repository, "#{user}@45.55.34.225:/home/#{user}/repos/#{application}.git"
+set :branch, "deploy"
 
 set :copy_exclude, %w(.git/* .svn/* log/* tmp/* .gitignore)
 
