@@ -5,7 +5,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: farma_production_2014_3-06-12-2014 #farma_development_2014_3
+      database: farma_production_2015_01 #farma_development_2014_3
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:

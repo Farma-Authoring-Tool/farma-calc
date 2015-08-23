@@ -28,6 +28,13 @@ Next gustavo maykel da silva seidel
   12. Atualizar versão do Rails e demais bibliotecas
   13. Fazer sistema de Backup da aplicação
   14. Construir área administrativa
+  15:
+
+##
+  Usar Mandril para email https://mandrillapp.com/login/?referrer=%2F
+  Sistemas de mensagens (email) da ferramenta
+  Fazer sistema de logs
+
 
 ## Pensar:
 

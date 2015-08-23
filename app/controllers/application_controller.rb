@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   #def current_user
-  #  @user ||= User.where(email: "gustavohm98@hotmail.com").first
+  #  @user ||= User.where(email: "experimentomestrado@gmail.com").first
   #end
 
   def call_rake(task, options = {})
