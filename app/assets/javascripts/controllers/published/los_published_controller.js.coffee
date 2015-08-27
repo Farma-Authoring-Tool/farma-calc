@@ -22,6 +22,9 @@ class Carrie.Published.Controllers.Los
           async: false
           success: (model, response, options) =>
             lo.set('url_page', "/published/los/#{lo.get('id')}")
+   
+            # allow view example LO and answered
+            lo.set('canAnswer', true);
 
             view = new Carrie.Published.Views.Lo(model: lo, page: page)
             Carrie.layouts.main.content.show view

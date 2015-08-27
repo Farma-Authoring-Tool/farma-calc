@@ -1,4 +1,4 @@
-set :rvm_ruby_string, 'ruby-1.9.3-p551@farma'
+set :rvm_ruby_string, 'ruby-1.9.3-p551'
 
 server "45.55.34.225", :web, :app, :db, primary: true
 
