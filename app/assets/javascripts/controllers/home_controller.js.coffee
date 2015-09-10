@@ -38,6 +38,9 @@ class Carrie.Controllers.Home
         $('.toggle-menu').remove()
         $('#main-container').addClass('span12')
 
+        # allow view example LO and answered
+        lo.set('canAnswer', true);
+
         Carrie.layouts.main.content.show new Carrie.Published.Views.Lo(model: lo, page: page)
       error: (model, response, options) =>
         alert('Objeto de Aprendizagme não encontrado!')
