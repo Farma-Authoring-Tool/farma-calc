@@ -29,5 +29,9 @@ module Carrie
 
     config.assets.enabled = true
     config.assets.version = '1.1.8'
+   
+    config.after_initialize do
+      Rails.application.config.assets.precompile = Rails.application.config.assets.precompile - Ckeditor.assets
+    end
   end
 end
