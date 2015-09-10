@@ -4,4 +4,5 @@ class Carrie.Views.Help extends Backbone.Marionette.ItemView
   className: 'help'
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

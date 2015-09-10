@@ -12,4 +12,5 @@ class Carrie.Views.LearnerVisionExercise extends Backbone.Marionette.CompositeVi
     this
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

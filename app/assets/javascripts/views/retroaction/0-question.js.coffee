@@ -16,7 +16,8 @@ class Carrie.Views.Retroaction.Question extends Backbone.Marionette.ItemView
 
   onRender: ->
     $(@el).find('.answer-group').html @view.render().el
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   verify_answer: (ev) ->
     ev.preventDefault()

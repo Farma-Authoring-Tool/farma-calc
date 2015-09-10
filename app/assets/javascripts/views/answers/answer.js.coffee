@@ -35,7 +35,8 @@ class Carrie.Views.Answer extends Backbone.Marionette.ItemView
   onRender: ->
     if @model && @tips && @tips.length > 0
       $(@el).find('.content .tip-number').html("Dica: " + @tips[@current_tip_index].number_of_tries)
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   previousTip: (ev) ->
     ev.preventDefault()
@@ -43,7 +44,8 @@ class Carrie.Views.Answer extends Backbone.Marionette.ItemView
       @current_tip_index++
       $(@el).find('.content .tip-number').html("Dica: " + @tips[@current_tip_index].number_of_tries)
       $(@el).find('.content .tip').html(@tips[@current_tip_index].content)
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+      Carrie.Helpers.MathJax.displayExpression(@el)
+      #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   nextTip: (ev) ->
     ev.preventDefault()
@@ -51,4 +53,5 @@ class Carrie.Views.Answer extends Backbone.Marionette.ItemView
       @current_tip_index--
       $(@el).find('.content .tip-number').html("Dica: " + @tips[@current_tip_index].number_of_tries)
       $(@el).find('.content .tip').html(@tips[@current_tip_index].content)
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+      Carrie.Helpers.MathJax.displayExpression(@el)
+      #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

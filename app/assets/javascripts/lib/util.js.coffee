@@ -11,7 +11,6 @@ Carrie.Utils.Menu =
     $('ul#side-menu > li > ul.sub-menu:has(li.active)').show()
     return obj
 
-
 Carrie.CKEDITOR =
   clear: ->
     $.each CKEDITOR.instances, (i, editor) ->
@@ -34,9 +33,10 @@ Carrie.CKEDITOR =
       config =
         language: 'pt-br',
         toolbar: Carrie.CKEDITOR.toolbar.full
-        extraPlugins: 'tliyoutube'
+        extraPlugins: 'tliyoutube,lineutils,widget,mathjax'
         scayt_autoStartup: true
         allowedContent: true
+        mathJaxLib: '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML'
 
     setTimeout ( ->
       $(el).ckeditor(config)
@@ -51,7 +51,7 @@ Carrie.CKEDITOR =
           { name: 'paragraph', items : [ 'NumberedList','BulletedList', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock', '-', 'Underline','Strike','Subscript','Superscript' ] },
           { name: 'links',  items : [ 'Link','Unlink','Anchor' ] },
           { name: 'tools', items : [ 'Maximize','-','About' ] },
-          { name: 'insert', items : [ 'Image', 'Table','HorizontalRule'] },
+          { name: 'insert', items : [ 'Image', 'Mathjax', 'Table','HorizontalRule'] },
           { name: 'colors', items : [ 'TextColor','BGColor' ] }
       ]
     full:
@@ -62,12 +62,12 @@ Carrie.CKEDITOR =
         { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
         { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
         { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
-        { name: 'insert',      items : [ 'Image', 'Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak', 'Frame' ] },
+        { name: 'insert',      items : [ 'Image', 'Mathjax', 'Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak', 'Frame' ] },
         '/',
         { name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
         { name: 'colors',      items : [ 'TextColor','BGColor' ] },
         { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About' ] },
-        { name: 'Video',       items : [ 'tliyoutube' ] }
+        { name: 'Video',       items : [ 'tliyoutube'] }
       ]
 
 Carrie.Bootstrap =

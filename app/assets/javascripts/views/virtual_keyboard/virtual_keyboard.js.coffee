@@ -34,6 +34,7 @@ class Carrie.Views.VirtualKeyBoard extends Backbone.Marionette.ItemView
     @input.attr('value', @options.currentResp)
     @updateDisplay()
     @inputFocus()
+    #Carrie.Helpers.MathJax.displayExpression(@el, 0)
     MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     @draggable()
     @el
@@ -106,6 +107,7 @@ class Carrie.Views.VirtualKeyBoard extends Backbone.Marionette.ItemView
       @input.addClass(@errorClass)
 
     @display.html('$'+expression+'$')
+    #Carrie.Helpers.MathJax.displayExpression(@display[0], 0)
     MathJax.Hub.Queue(["Typeset",MathJax.Hub, @display[0]])
 
   inputFocus: ->

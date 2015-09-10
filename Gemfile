@@ -14,7 +14,7 @@ gem 'bson_ext'
 gem 'devise'
 gem 'simple_form'
 
-gem "ckeditor", '~> 4.0.4', git: 'https://github.com/galetahub/ckeditor.git'
+gem "ckeditor", '~> 4.1.3', git: 'https://github.com/galetahub/ckeditor.git'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 gem 'kaminari', "~> 0.14.1"
 
@@ -75,7 +75,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', require: false
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

@@ -5,4 +5,5 @@ class Carrie.CompositeViews.AnswerComments extends Backbone.Marionette.Composite
   itemViewContainer: '.comments-list-pop-over'
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

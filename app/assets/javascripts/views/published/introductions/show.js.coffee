@@ -3,4 +3,5 @@ class Carrie.Published.Views.Introduction extends Backbone.Marionette.ItemView
   tagName: 'article'
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

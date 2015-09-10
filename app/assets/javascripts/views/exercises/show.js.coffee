@@ -12,7 +12,8 @@ class Carrie.CompositeViews.ExerciseShow extends Backbone.Marionette.CompositeVi
     Carrie.CKEDITOR.clear()
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     @el.id = @model.get('id')
     $(@el).find('span i').tooltip()
     url = @collection.url() + '/sort'

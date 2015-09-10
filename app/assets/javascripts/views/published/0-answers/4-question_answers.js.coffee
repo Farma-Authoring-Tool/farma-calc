@@ -35,13 +35,15 @@ class Carrie.Published.CompositeViews.QuestionAnswers extends Backbone.Marionett
 
   refresh: ->
     $(@el).find(".amount").html(@collection.length)
-    el = @el
-    setTimeout ( ->
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub, el])
-    ), 100
+    #el = @el
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #setTimeout ( ->
+    #    MathJax.Hub.Queue(["Typeset",MathJax.Hub, el])
+    #), 100
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     $(@el).find('th[data-toggle="tooltip"]').tooltip()
 
   # Insert in the correct position

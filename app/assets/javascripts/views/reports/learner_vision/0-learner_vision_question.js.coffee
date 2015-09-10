@@ -26,4 +26,5 @@ class Carrie.Views.LearnerVisionQuestion extends Backbone.Marionette.ItemView
   onRender: ->
     @renderAnswerView()
     @renderQuestionAnswers()
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

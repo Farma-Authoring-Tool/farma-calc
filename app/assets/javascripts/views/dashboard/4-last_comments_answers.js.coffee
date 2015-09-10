@@ -16,4 +16,5 @@ class Carrie.CompositeViews.LastCommentsAnswers extends Backbone.Marionette.Comp
 
   onRender: ->
     $(@el).find('th[data-toggle="tooltip"]').tooltip()
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])

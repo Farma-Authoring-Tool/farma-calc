@@ -10,9 +10,11 @@ class Carrie.Views.LearnerReportTimeline extends Backbone.Marionette.ItemView
 
   onRender: ->
     $(@el).find('#timeline').delegate ".nav-next", "click", =>
-       MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+       Carrie.Helpers.MathJax.displayExpression(@el)
+       #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     $(@el).find('#timeline').delegate ".flag-content", "click", =>
-       MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+       Carrie.Helpers.MathJax.displayExpression(@el)
+       #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   loadData: ->
     $.ajax

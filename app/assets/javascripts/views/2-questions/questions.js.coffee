@@ -19,7 +19,8 @@ class Carrie.Views.Question extends Backbone.Marionette.CompositeView
     @view = new Carrie.Views.Answer().render()
     $(@el).find('.answer-group').html @view.render().el
     $(@el).find('span i').tooltip()
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   appendHtml: (collectionView, itemView, index) ->
     $(@el).find('.tips section').append(itemView.el) if itemView.model.get('id')

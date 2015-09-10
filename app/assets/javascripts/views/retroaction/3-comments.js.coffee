@@ -12,7 +12,8 @@ class Carrie.CompositeViews.Retroaction.AnswerComments extends Backbone.Marionet
     @model.set('user_name', Carrie.currentUser.get('name'))
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   viewExamples: (ev) ->
     ev.preventDefault()

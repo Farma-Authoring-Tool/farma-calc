@@ -17,7 +17,8 @@ class Carrie.Published.Views.Exercise extends Backbone.Marionette.CompositeView
     this
 
   onRender: ->
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     if @options.retroaction_id
       Carrie.Helpers.Retroaction.open @options.retroaction_id
 

@@ -18,7 +18,8 @@ class Carrie.CompositeViews.LearnersReportLoTable extends Backbone.Marionette.Co
   onRender: ->
     @setProgressBar()
     @setLinkToExport()
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
 
   setLinkToExport: ->
     console.log $(@el).find('a#export_to_excel')

@@ -38,9 +38,10 @@
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./controllers
 //= require_tree ./views
-// require_tree ./routers
-//= require_tree .
+
+// require_tree .
 
 // Show loading feedback on ajax
 $(document).ajaxStart(function () {

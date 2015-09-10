@@ -19,10 +19,11 @@ class Carrie.CompositeViews.WrongCorrectAnswersIndex extends Backbone.Marionette
 
   updateAfterRequest: ->
     @updatePageInfo()
-    el = @el
-    setTimeout ( ->
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub, el])
-    ), 100
+    #el = @el
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #setTimeout ( ->
+    #  MathJax.Hub.Queue(["Typeset",MathJax.Hub, el])
+    #), 100
 
   onRender: ->
     @endless.load()
@@ -31,7 +32,8 @@ class Carrie.CompositeViews.WrongCorrectAnswersIndex extends Backbone.Marionette
       @search()
 
     @retroToAnswer()
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
+    Carrie.Helpers.MathJax.displayExpression(@el)
+    #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     $(@el).find('th[data-toggle="tooltip"]').tooltip()
 
   serializeData: ->
