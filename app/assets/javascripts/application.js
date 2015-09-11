@@ -40,8 +40,9 @@
 //= require_tree ./collections
 //= require_tree ./controllers
 //= require_tree ./views
-
+//= require_self
 // require_tree .
+
 
 // Show loading feedback on ajax
 $(document).ajaxStart(function () {
