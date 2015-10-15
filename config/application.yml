@@ -1,9 +1,6 @@
 host:
   production: 'farma.educacional.mat.br'
   development: 'localhost:3000'
-email:
-  account: "YOURINFO"
-  passwd: "YOURTINFO"
 
 experiment:
   control_group: ["53e9fa9f759b743c2d00002f"]
