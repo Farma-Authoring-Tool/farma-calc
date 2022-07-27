@@ -1,17 +1,17 @@
 GIT
-  remote: git://github.com/dmarczal/bootstrap-rails.git
-  revision: 409e137e771c0c8a2836dfaf2195928c98f787ae
-  specs:
-    anjlab-bootstrap-rails (2.1.1.1)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
-GIT
   remote: https://github.com/brightbits/math_engine.git
   revision: 472049bf15b31b45dceff577184bc2647063e443
   specs:
     math_engine (0.6.4)
       lexr (>= 0.3.1)
+
+GIT
+  remote: https://github.com/dmarczal/bootstrap-rails.git
+  revision: 409e137e771c0c8a2836dfaf2195928c98f787ae
+  specs:
+    anjlab-bootstrap-rails (2.1.1.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
 
 GIT
   remote: https://github.com/galetahub/ckeditor.git
@@ -20,6 +20,23 @@ GIT
     ckeditor (4.1.3)
       cocaine
       orm_adapter (~> 0.5.0)
+
+GIT
+  remote: https://github.com/meleyal/backbone-on-rails.git
+  revision: 26e39393361102f8d056d75e597feac33ce9ae16
+  tag: v0.9.2.1
+  specs:
+    backbone-on-rails (0.9.2.1)
+      eco (~> 1.0.0)
+      ejs (~> 1.0.0)
+      jquery-rails
+      railties (>= 3.1)
+
+GIT
+  remote: https://github.com/sstephenson/eco.git
+  revision: 0d60edbf4ee76beaade73368de412b5fee7edba7
+  specs:
+    eco (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -53,11 +70,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     arel (3.0.2)
-    backbone-on-rails (0.9.2.1)
-      eco (~> 1.0.0)
-      ejs (~> 1.0.0)
-      jquery-rails
-      railties (>= 3.1)
     bcrypt-ruby (3.0.1)
     bson (1.8.3)
     bson_ext (1.8.3)
@@ -105,14 +117,9 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.1)
-    eco (1.0.0)
-      coffee-script
-      eco-source
-      execjs
-    eco-source (1.1.0.rc.1)
     ejs (1.0.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.9)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -151,7 +158,7 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.7)
+    json (1.8.3)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -306,7 +313,7 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails!
-  backbone-on-rails (= 0.9.2.1)
+  backbone-on-rails (= 0.9.2.1)!
   bcrypt-ruby (~> 3.0.0)
   bson_ext
   bullet
@@ -317,6 +324,9 @@ DEPENDENCIES
   database_cleaner
   delayed_job_mongoid
   devise
+  eco (= 1.0.0)!
+  ejs (~> 1.0)
+  eventmachine (= 1.0.9)
   factory_girl_rails (~> 4.2.1)
   faker
   font-awesome-sass-rails
@@ -325,6 +335,7 @@ DEPENDENCIES
   guard-spork
   handlebars_assets
   jquery-rails
+  json (= 1.8.3)
   kaminari (~> 0.14.1)
   launchy
   marionette-rails
@@ -352,4 +363,4 @@ DEPENDENCIES
   yajl-ruby
 
 BUNDLED WITH
-   1.10.6
+   1.16.1

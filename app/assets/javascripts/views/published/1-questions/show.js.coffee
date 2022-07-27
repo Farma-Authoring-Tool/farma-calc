@@ -59,6 +59,7 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
   renderLastAnswerView: (la) ->
     last_answer =
       tip: la.get('tip')
+      correct_feedback: la.get('correct_feedback')
       correct: la.get('correct')
       response: la.get('response')
       try_number: la.get('try_number')

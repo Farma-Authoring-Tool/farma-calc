@@ -7,4 +7,5 @@ glue @answer do
 
   node(:created_at) {|answer| l answer.created_at}
   node(:tips) {|answer| answer.tips.as_json}
+  node(:correct_feedback) { |answer| answer.original_question.correct_feedback }
 end

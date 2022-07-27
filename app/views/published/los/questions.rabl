@@ -10,6 +10,7 @@ node :last_answer,
     response: la.response,
     attempt_number: la.attempt_number,
     correct: la.correct,
+    correct_feedback: la.original_question.correct_feedback,
     tips: la.tips.as_json
   }
 end

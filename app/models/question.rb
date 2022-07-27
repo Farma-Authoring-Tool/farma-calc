@@ -14,13 +14,15 @@ class Question
   field :many_answers, type: Boolean, default: false
   field :eql_sinal, type: Boolean, default: false
 
+  field :correct_feedback, type: String
+
   default_scope asc(:position)
 
   before_create :set_position
   before_save :set_exp_variables
 
   attr_accessible :id, :title, :content, :correct_answer, :available,
-                  :many_answers, :cmas_order, :precision
+                  :many_answers, :cmas_order, :precision, :correct_feedback
 
   validates_presence_of :title, :content, :correct_answer
   validates_length_of :title, :maximum => 55

@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 gem 'mongoid', '~> 3.1.0'
 
 gem 'jquery-rails'
-gem 'backbone-on-rails', '0.9.2.1'
+gem 'backbone-on-rails', '0.9.2.1', git: 'https://github.com/meleyal/backbone-on-rails.git', tag: 'v0.9.2.1'
 gem 'rabl'
 gem 'yajl-ruby'
 
@@ -29,13 +29,18 @@ gem 'timelineJS-rails', '~> 1.1.5'
 
 gem 'mongoid_magic_counter_cache' # https://github.com/jah2488/mongoid-magic-counter-cache
 
+gem 'eco', '1.0.0', :git => 'https://github.com/sstephenson/eco.git'
+gem 'ejs', '~> 1.0'
+gem 'eventmachine', '1.0.9' 
+gem 'json', '1.8.3'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   #gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails' #, :git => 'git://github.com/anjlab/bootstrap-rails.git'
   gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                                :git => 'git://github.com/dmarczal/bootstrap-rails.git'
+                                :git => 'https://github.com/dmarczal/bootstrap-rails.git'
                                 #:git => 'git://github.com/anjlab/bootstrap-rails.git'
   gem 'font-awesome-sass-rails'
   gem 'handlebars_assets'

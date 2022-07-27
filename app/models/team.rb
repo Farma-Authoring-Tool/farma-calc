@@ -42,6 +42,8 @@ class Team
       self.errors.messages.delete :enroll
       unless self.users.include?(user)
         self.users << user
+        user.teams << self
+        user.save
         self.save
       end
       return true

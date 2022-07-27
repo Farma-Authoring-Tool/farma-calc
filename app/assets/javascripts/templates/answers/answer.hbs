@@ -7,7 +7,7 @@
 
 
 {{#if tip}}
-   <div class="span4 answer-tip">
+   <div class="span4 answer-tip answer-tip-wrong">
      <i class='left-icon icon-caret-left'></i>
      <div class='title'>Resposta Incorreta, analise a dica e tente novamente</div>
      <div class='content'>
@@ -22,4 +22,16 @@
         <a href="#" class="right next"><i class="icon-arrow-right"></i></a>
      </div>
    </div>
+{{/if}}
+
+{{#if correct}}
+  {{#if correct_feedback }}
+     <div class="span4 answer-tip answer-tip-correct">
+       <i class='left-icon icon-caret-left'></i>
+       <div class='title'>Resposta correta, explore a dica de estudo a seguir: </div>
+       <div class='content'>
+           <div class="tip">{{safe correct_feedback}}</div>
+       </div>
+     </div>
+  {{/if}}
 {{/if}}

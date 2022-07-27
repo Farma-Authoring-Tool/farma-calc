@@ -5,7 +5,7 @@ glue @exercise do
 
   child(:questions) do
     attributes :id, :title, :content, :available, :correct_answer, :exp_variables,
-               :many_answers, :eql_sinal, :cmas_order, :precision
+               :many_answers, :eql_sinal, :cmas_order, :precision, :correct_feedback
 
     child(:tips) do
       attributes :id, :content, :number_of_tries

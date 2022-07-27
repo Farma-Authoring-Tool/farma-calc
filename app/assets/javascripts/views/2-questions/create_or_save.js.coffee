@@ -13,14 +13,18 @@ class Carrie.Views.CreateOrSaveQuestion extends Backbone.Marionette.ItemView
   prepareCkeditor: ->
     if not @model
       Carrie.CKEDITOR.clearWhoHas("ckeditor-new")
+      Carrie.CKEDITOR.clearWhoHas("ckeditor-feedback-new")
       @cked = "ckeditor-new"
+      @ckedFeedback = "ckeditor-feedback-new"
       @model = new Carrie.Models.Question
         exercise: @options.exercise
     else
       @cked = "ckeditor-#{@model.get('id')}"
+      @ckedFeedback = "ckeditor-feedback-#{@model.get('id')}"
       @editing = true
 
     Carrie.CKEDITOR.clearWhoHas("#{@cked}-tip")
+    Carrie.CKEDITOR.clearWhoHas("#{@ckedFeedback}-tip")
 
 
   beforeClose: ->
@@ -29,6 +33,7 @@ class Carrie.Views.CreateOrSaveQuestion extends Backbone.Marionette.ItemView
   onRender: ->
     @modelBinder.bind(this.model, this.el)
     Carrie.CKEDITOR.show "\##{@cked}"
+    Carrie.CKEDITOR.show "\##{@ckedFeedback}"
     @addShowHideOrderOptionEvent()
     @showHideOrderOption()
 
@@ -51,6 +56,7 @@ class Carrie.Views.CreateOrSaveQuestion extends Backbone.Marionette.ItemView
   cancel: (ev) ->
     ev.preventDefault()
     $(@el).find("\##{@cked}").ckeditorGet().destroy()
+    $(@el).find("\##{@ckedFeedback}").ckeditorGet().destroy()
 
     if @editing
       @modelBinder.unbind()
@@ -66,11 +72,13 @@ class Carrie.Views.CreateOrSaveQuestion extends Backbone.Marionette.ItemView
     Carrie.Helpers.Notifications.Form.loadSubmit(@el)
 
     @model.set('content', CKEDITOR.instances[@cked].getData())
+    @model.set('correct_feedback', CKEDITOR.instances[@ckedFeedback].getData())
 
     @model.save @model.attributes,
       wait: true
       success: (model, response, options) =>
         $(@el).find("\##{@cked}").ckeditorGet().destroy()
+        $(@el).find("\##{@ckedFeedback}").ckeditorGet().destroy()
 
         Carrie.Helpers.Notifications.Form.resetSubmit(@el)
         Carrie.Helpers.Notifications.Top.success 'Questão salva com sucesso!', 4000

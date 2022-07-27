@@ -30,12 +30,14 @@ class Carrie.Models.Question extends Backbone.RelationalModel
     'comparation_type': 'expression'
     'cmas_order': true
     'precision': 5
+    'correct_feedback': ''
 
   toJSON: ->
     id: @get('id')
     title: @get('title')
     content: @get('content')
     correct_answer: @get('correct_answer')
+    correct_feedback: @get('correct_feedback')
     available: @get('available')
     precision: @get('precision')
     cmas_order: @get('cmas_order')

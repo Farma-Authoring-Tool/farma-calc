@@ -155,8 +155,21 @@
       }
     }
 
+    .answer-tip-wrong {
+        border: 1px solid red;
+        i.left-icon {
+          color: red;
+        }
+    }
+
+    .answer-tip-correct {
+        border: 1px solid green;
+        i.left-icon {
+          color: green;
+        }
+    }
+
     .answer-tip {
-      border: 1px solid red;
       @include border-radius(5px);
 
       .content {
@@ -175,7 +188,7 @@
 
       i.left-icon {
         font-size: 30px;
-        color: red;
+        // color: red;
         position: relative;
         left: 14px;
         top: 30px;
