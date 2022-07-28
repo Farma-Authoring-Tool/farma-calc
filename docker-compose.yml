@@ -27,9 +27,11 @@ services:
       - 3000:3000
     environment:
       RAILS_ENV: development
+    depends_on:
+      - db
 
   db:
-    image: mongo
+    image: mongo:4.4.6
     ports:
       - 27888:27017
     volumes:

@@ -143,8 +143,8 @@ WORKDIR $APP
 # RUN echo "gem: --no-ri --no-rdoc" > ${HOME}/.gemrc
 # RUN echo ":gempath: ${BUNDLE_PATH}" >> ${HOME}/.gemrc
 # RUN cat ${HOME}/.gemrc
-RUN sudo chown -R $(whoami):devel /usr/local/* \
-  && sudo chmod -R g+rwx /usr/local/*
+# RUN sudo chown -R $(whoami):devel /usr/local/* \
+#  && sudo chmod -R g+rwx /usr/local/*
 
 # Install bundler and rails
 RUN gem install bundler -v 1.7.6 \
