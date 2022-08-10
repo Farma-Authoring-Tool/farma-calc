@@ -7,31 +7,40 @@
 
 
 {{#if tip}}
-   <div class="span4 answer-tip answer-tip-wrong">
-     <i class='left-icon icon-caret-left'></i>
-     <div class='title'>Resposta Incorreta, analise a dica e tente novamente</div>
-     <div class='content'>
-         <div class="clearfix">
-           <span class="left"><strong>Tentativa: {{attempt_number}}</strong></span>
-           <span class="tip-number right"></span>
-         </div>
-         <div class="tip">{{safe tip.content}}</div>
-     </div>
-     <div class="tip-nav clearfix">
-        <a href="#" class="left previous"><i class="icon-arrow-left"></i></a>
-        <a href="#" class="right next"><i class="icon-arrow-right"></i></a>
-     </div>
-   </div>
+<div class="span6 answer-tip answer-tip-wrong">
+  <i class='left-icon icon-caret-left'></i>
+  <div class='title'>Resposta Incorreta, analise as dicas e tente novamente!</div>
+  <div class="accordion accordion-tips" id="accordion-{{tip.id}}">
+
+    {{#each tips}}
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-{{../tip.id}}"
+          href="#collapse{{this.id}}">
+          {{this.title}}
+        </a>
+      </div>
+      <div id="collapse{{this.id}}" class="accordion-body collapse">
+        <div class="accordion-inner">
+          {{safe this.content}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+</div>
 {{/if}}
 
+
 {{#if correct}}
-  {{#if correct_feedback }}
-     <div class="span4 answer-tip answer-tip-correct">
-       <i class='left-icon icon-caret-left'></i>
-       <div class='title'>Resposta correta, explore a dica de estudo a seguir: </div>
-       <div class='content'>
-           <div class="tip">{{safe correct_feedback}}</div>
-       </div>
-     </div>
-  {{/if}}
+{{#if correct_feedback }}
+<div class="span6 answer-tip answer-tip-correct">
+  <i class='left-icon icon-caret-left'></i>
+  <div class='title'>Resposta correta, explore a dica de estudo a seguir: </div>
+  <div class='content'>
+    <div class="tip">{{safe correct_feedback}}</div>
+  </div>
+</div>
+{{/if}}
 {{/if}}

@@ -3,6 +3,7 @@ class Answers::Tip
   include Mongoid::Timestamps
 
   field :from_id, type: Moped::BSON::ObjectId
+  field :title, type: String
   field :content, type: String
   field :number_of_tries, type: Integer
 

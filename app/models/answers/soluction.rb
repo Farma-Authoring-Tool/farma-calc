@@ -52,7 +52,8 @@ class Answers::Soluction
   end
 
   def tips
-    @tips ||= question.tips_for(self.attempt_number)
+    # @tips ||= question.tips_for(self.attempt_number)
+    @tips ||= question.tips.reverse
   end
 
   # admin can search all in all the answers
@@ -153,6 +154,7 @@ private
   def copy_question_tips(question, copied_question)
     question.tips.each do |tip|
       copied_question.tips.create from_id: tip.id,
+                                  title: tip.title,
                                   content: tip.content,
                                   number_of_tries: tip.number_of_tries
     end

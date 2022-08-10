@@ -11,7 +11,8 @@ class Answers::LastAnswer
   attr_accessible :question_id, :response, :correct, :attempt_number
 
   def tips
-    @tips ||= question.tips_for(self.attempt_number)
+    #@tips ||= question.tips_for(self.attempt_number)
+    @tips ||= question.tips.reverse
   end
 end
 
