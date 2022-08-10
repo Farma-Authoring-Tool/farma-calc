@@ -6,11 +6,13 @@ class Carrie.Models.Tip extends Backbone.RelationalModel
   paramRoot: 'tip'
 
   defaults:
+    'title': ''
     'content': ''
     'number_of_tries': '1'
 
   toJSON: ->
     id: @get('id')
+    title: @get('title')
     content: @get('content')
     number_of_tries: @get('number_of_tries')
     lo_id: @get('question').get('exercise').get('lo').get('id')
