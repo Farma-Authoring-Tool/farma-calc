@@ -1,5 +1,5 @@
-class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
-  template: 'published/questions/show'
+class Carrie.Published.Hidden.Views.Question extends Backbone.Marionette.ItemView
+  template: 'published/hidden/questions/show'
   tagName: 'article'
   className: 'question'
 
@@ -16,7 +16,6 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
 
   events:
     'click .answer': 'verify_answer'
-    'click a[data-show-exercise]' : 'showHiddenExercise'
 
   verify_answer: (ev) ->
     ev.preventDefault()
@@ -49,7 +48,6 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
         @renderAnswerView()
         @renderLastAnswerView(model)
         @addModelToAnswersView(model)
-        @updateProgressBar(model);
 
       error: (model, response, options) ->
         alert resp.responseText
@@ -80,38 +78,8 @@ class Carrie.Published.Views.Question extends Backbone.Marionette.ItemView
       if $('body').data('control-group') != true
         @answersView.addAnswer(model)
 
-  updateProgressBar: (model) ->
-    if model.get('completeness')
-      progress = $('.progress-success .bar')
-      progress.html("#{model.get('completeness')}% Concluído")
-      progress.attr('style', "width: #{model.get('completeness')}%")
-
   onRender: ->
     @renderAnswerView()
     @renderQuestionAnswers()
     Carrie.Helpers.MathJax.displayExpression(@el)
     #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
-
-  showHiddenExercise: (ev) ->
-    ev.preventDefault()
-
-    exercise_id = $(ev.target).data('show-exercise')
-    team_id = @options.team_id
-
-    exercise = Carrie.Published.Hidden.Models.Exercise.findOrCreate(exercise_id)
-    exercise = exercise || new Carrie.Published.Hidden.Models.Exercise(id: exercise_id, team_id: team_id)
-
-    exercise.fetch
-      async: false
-      success: (model, response, options) =>
-        view = new Carrie.Published.Hidden.Views.Exercise
-          model: exercise
-          team_id: team_id
-          canAnswer: true
-
-        $(view.render().el).modal('show');
-      error: (model, response, options) ->
-        console.log(model)
-        alert('Exercício não encontrado')
-
-    return false

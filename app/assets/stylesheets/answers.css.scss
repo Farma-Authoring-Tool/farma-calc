@@ -5,6 +5,10 @@
   cursor: pointer;
 }
 
+.question .accordion {
+  margin-bottom: 0;
+}
+
 #retroaction-modal {
   z-index: 1041;
   width: 98%;
@@ -37,3 +41,31 @@
     padding: 5px 15px 10px;
   }
 }
+
+.modal-fullscreen {
+  z-index: 1041;
+  width: 98%;
+  top: 1% !important;
+  margin: 0px 10px;
+  left: 0;
+
+  .modal-body {
+    max-height: 75%;
+    overflow: auto;
+    position: relative;
+  
+    .border-focus {
+      border-color: black;
+      @include box-shadow(0px 0px 7px 2px rgba(0, 0, 0, 0.9));
+    }
+  }
+  
+  .modal-header {
+    padding: 0px 15px;
+  }
+  .modal-footer {
+    padding: 5px 15px 10px;
+  }
+}
+
+

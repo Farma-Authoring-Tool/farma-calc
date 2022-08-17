@@ -27,6 +27,11 @@ class Published::LosController < ApplicationController
     @can_answer = check_if_can_answer
   end
 
+  def show_hidden_exercise
+    @exercise = Exercise.find(params[:id])
+    @can_answer =true 
+  end
+
 private
   def clear_user_temp_answers
     answers = current_user.answers.or({team_id: nil}, {to_test: true})

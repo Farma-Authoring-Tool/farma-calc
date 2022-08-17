@@ -77,7 +77,7 @@ class Lo
   end
 
   def exercises_avaiable
-    self.exercises.where(available: true)
+    self.exercises.where(available: true, hidden: false)
   end
 
   def introductions_avaiable

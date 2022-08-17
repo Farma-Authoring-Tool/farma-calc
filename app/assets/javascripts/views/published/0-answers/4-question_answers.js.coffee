@@ -7,6 +7,9 @@ class Carrie.Published.CompositeViews.QuestionAnswers extends Backbone.Marionett
     parentModel: @
 
   initialize: ->
+    question_id = @options.question_id
+    @model = { toJSON: -> { question_id: question_id } }
+
     @collection = new Carrie.Collections.WrongCorrectAnswers []
     @url = "/api/answers/for-question/#{@options.question_id}"
     if @options.learner_id
@@ -42,6 +45,7 @@ class Carrie.Published.CompositeViews.QuestionAnswers extends Backbone.Marionett
     #), 100
 
   onRender: ->
+    $(@el).find(".amount").html(@collection.length)
     Carrie.Helpers.MathJax.displayExpression(@el)
     #MathJax.Hub.Queue(["Typeset",MathJax.Hub, @el])
     $(@el).find('th[data-toggle="tooltip"]').tooltip()

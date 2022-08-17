@@ -41,7 +41,7 @@
   }
 
   table {
-    width: 440px;
+    width: 100%; //440px;
     font-size: 12px;
 
     .response, .correct, .attempt_number, .time, .comments_size {
@@ -49,16 +49,16 @@
       text-align: center;
     }
 
-    .response { width: 160px; }
-    .correct { width: 45px; }
-    .attempt_number { width: 55px }
-    .time { width: 115px; }
-    .comments_size {width: 21px}
+    .response { width: 30% }// 160px; }
+    .correct { width: 15% } //45px; }
+    .attempt_number { width: 15% } //55px }
+    .time { width: 30% } //115px; }
+    .comments_size { width: 10% } //21px}
 
     th,td { padding: 2px; }
-    thead { display:block; left:0px; }
+    // thead { display:block; left:0px; }
     tbody {
-      display:block;
+      // display:block;
       max-height: 120px;
       overflow: auto;
       overflow-y: scroll;

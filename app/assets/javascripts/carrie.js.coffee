@@ -18,6 +18,11 @@ Carrie.Published.Controllers = {}
 Carrie.Published.Views = {}
 Carrie.Published.CompositeViews = {}
 
+Carrie.Published.Hidden = {}
+Carrie.Published.Hidden.Models = {}
+Carrie.Published.Hidden.Collections = {}
+Carrie.Published.Hidden.Views = {}
+
 Carrie.Models.Retroaction = {}
 Carrie.Views.Retroaction = {}
 Carrie.CompositeViews.Retroaction = {}

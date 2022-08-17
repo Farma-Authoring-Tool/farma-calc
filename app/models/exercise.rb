@@ -6,13 +6,15 @@ class Exercise
   field :content, type: String
   field :available, type: Boolean, default: false
   field :position, type: Integer
+  
+  field :hidden, type: Boolean, default: false
 
   default_scope asc(:position)
   #default_scope order_by([:position, :desc])
 
   before_create :set_position
 
-  attr_accessible :id, :title, :content, :available, :questions_attributes
+  attr_accessible :id, :title, :content, :available, :questions_attributes, :hidden
 
   validates_presence_of :title, :content
   validates :available, :inclusion => {:in => [true, false]}

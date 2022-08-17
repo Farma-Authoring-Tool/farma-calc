@@ -23,6 +23,7 @@ class Carrie.Models.Exercise extends Backbone.RelationalModel
     title: @get('title')
     content: @get('content')
     available: @get('available')
+    hidden: @get('hidden')
     lo_id: @get('lo').get('id')
     updated_at: @get('updated_at')
     created_at: @get('created_at')
