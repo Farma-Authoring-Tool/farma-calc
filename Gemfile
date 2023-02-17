@@ -56,7 +56,6 @@ group :development, :test do
   gem 'selenium-webdriver',   '~> 2.35.1'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'thin'
   gem 'growl'
   gem 'faker'
   gem 'railroady'
