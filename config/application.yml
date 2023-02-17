@@ -1,5 +1,5 @@
 host:
-  production: 'farma.educacional.mat.br'
+  production: 'farma-calc.educacional.mat.br'
   development: 'localhost:3000'
 
 experiment:
