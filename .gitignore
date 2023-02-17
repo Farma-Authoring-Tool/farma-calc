@@ -18,4 +18,3 @@ doc/*.png
 lib/tasks/test.rake
 spec/data
 config/application.yml
-deploy.sh
