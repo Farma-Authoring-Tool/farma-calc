@@ -17,8 +17,8 @@
   margin: 0px 10px;
   left: 0;
   .modal-body {
-    max-height: 75%;
-    overflow: auto;
+    max-height: 85vh !important;
+    overflow: auto !important;
     position: relative;
     .border-focus {
       border-color: black;
@@ -50,8 +50,8 @@
   left: 0;
 
   .modal-body {
-    max-height: 75%;
-    overflow: auto;
+    max-height: 85vh !important;
+    overflow: auto !important;
     position: relative;
   
     .border-focus {

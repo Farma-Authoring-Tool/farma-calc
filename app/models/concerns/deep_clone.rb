@@ -38,7 +38,8 @@ module DeepCloneLo
     def clone_exercises
      @lo.exercises.each do |exercise|
         exercise_clone = @clone.exercises.create! title: exercise.title,
-                            content: exercise.content, available: exercise.available
+                            content: exercise.content, available: exercise.available,
+			    hidden: exercise.hidden
         
         exercise_clone.update_attribute(:position, exercise.position)
 
@@ -55,7 +56,8 @@ module DeepCloneLo
                             exp_variables: question.exp_variables,
                             eql_sinal: question.eql_sinal,
                             cmas_order: question.cmas_order,
-                            precision: question.precision
+                            precision: question.precision,
+			    correct_feedback: question.correct_feedback
 
         question_clone.update_attribute(:position, question.position)
         clone_tips(question, question_clone)
@@ -64,7 +66,8 @@ module DeepCloneLo
 
     def clone_tips(question, question_clone)
       question.tips.each do |tip|
-        question_clone.tips.create! number_of_tries: tip.number_of_tries, content: tip.content
+        question_clone.tips.create! number_of_tries: tip.number_of_tries, content: tip.content,
+				    title: tip.title
       end
     end
   end
