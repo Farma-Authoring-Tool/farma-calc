@@ -1,6 +1,5 @@
-
 # Base Image
-FROM ruby:2.2
+FROM ruby:2.3
 
 # Encoding
 # C.UTF8 locale supports Computer English language
@@ -71,7 +70,8 @@ RUN apt-get update -qq && \
   libgmp-dev    \
   libxslt1-dev  \
   imagemagick   \
-  openssl       \
+  libssl1.0-dev \
+#  openssl       \
   git           \
   sudo          \
   ssh           \
@@ -107,8 +107,8 @@ ENV HOME /home/${_USER}
 ENV APP /var/www/${APP_NAME}
 ENV BUNDLE_PATH /bundle/vendor
 
-ENV GEM_HOME=${BUNDLE_PATH}
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
+# ENV GEM_HOME=${BUNDLE_PATH}
+# ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 # RUN unset BUNDLE_PATH
 # RUN unset BUNDLE_BIN
 
