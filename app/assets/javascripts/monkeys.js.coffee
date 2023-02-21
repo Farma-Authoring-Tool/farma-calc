@@ -53,6 +53,12 @@ Handlebars.registerHelper 'showBoolean', (bol) ->
 
   return "Não"
 
+Handlebars.registerHelper 'showDisplayTips', (format) ->
+  if format == "sequential"
+    return "Sequencial"
+
+  return "Todas de uma vez"
+
 Handlebars.registerHelper 'UnlessCond', (e1, e2, options) ->
   if e1 != e2
     return options.fn(this)

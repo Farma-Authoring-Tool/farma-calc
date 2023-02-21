@@ -1,32 +1,46 @@
 <header>
-  <div class='center'>
-    <span class='icon'>
-      {{#if available }}
-        <i rel="tooltip" data-original-title="Exercício Publicada" class='left icon-certificate icon-green'></i>
+  <div class="center">
+    <span class="icon">
+      {{#if available}}
+        <i
+          rel="tooltip"
+          data-original-title="Exercício Publicada"
+          class="left icon-certificate icon-green"
+        ></i>
       {{else}}
-        <i rel="tooltip" data-original-title="Exercício não Publicado" class='left icon-certificate icon-red'></i>
+        <i
+          rel="tooltip"
+          data-original-title="Exercício não Publicado"
+          class="left icon-certificate icon-red"
+        ></i>
       {{/if}}
     </span>
     <div>
       <h4>Exercício {{title}}</h4>
     </div>
   </div>
-    <p class='date-info text-right'>
-      Criado em {{created_at}}
-      Atualizado em {{updated_at}}
-    </p>
+  <p class="date-info text-right">
+    Criado em
+    {{created_at}}
+    Atualizado em
+    {{updated_at}}
+  </p>
 </header>
-<hr>
+<hr />
 
 <div>{{safe content}}</div>
 
-<div class='clearfix separator-top'>
-  <div class='left'>
+<div class="clearfix separator-top">
+  <div class="left">
     <h4>Questões</h4>
   </div>
-  <div class='right'>
-      <a href='#' class="btn btn-small btn-info" id='new-question-link' ><i class="icon-plus-sign"></i> Criar nova questão </a>
+  <div class="right">
+    <a href="#" class="btn btn-small btn-info" id="new-question-link"><i
+        class="icon-plus-sign"
+      ></i>
+      Criar nova questão
+    </a>
   </div>
 </div>
 
-<div id='new_question'></div>
+<div id="new_question"></div>

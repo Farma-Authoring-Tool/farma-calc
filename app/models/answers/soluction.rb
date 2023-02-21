@@ -52,8 +52,11 @@ class Answers::Soluction
   end
 
   def tips
-    # @tips ||= question.tips_for(self.attempt_number)
-    @tips ||= question.tips.reverse
+    if question.display_tips?(:sequential)
+      @tips ||= question.tips_for(self.attempt_number)
+    else
+      @tips ||= question.tips.reverse
+    end
   end
 
   # admin can search all in all the answers
@@ -114,7 +117,9 @@ private
   def copy_exercise
     copied_exercise = self.create_exercise from_id: original_question.exercise.id,
                          title:   original_question.exercise.title,
-                         content: original_question.exercise.content
+                         content: original_question.exercise.content,
+                         hidden: original_question.exercise.hidden
+
 
     copy_exercise_questions(copied_exercise)
   end
@@ -134,6 +139,7 @@ private
                                        eql_sinal: question.eql_sinal,
                                        cmas_order: question.cmas_order,
                                        precision: question.precision,
+                                       display_tips: question.display_tips,
                                        soluction_id: s_id
 
 

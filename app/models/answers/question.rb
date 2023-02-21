@@ -15,6 +15,9 @@ class Answers::Question
   field :cmas_order, type: Boolean, default: true # cmas_order = consider_multiple_answers_order
   field :precision, type: Integer, default: 5
 
+  DISPLAY_TIPS_OPTIONS = ['sequential', 'all_at_once']
+  field :display_tips, :type => String, default: DISPLAY_TIPS_OPTIONS[0]
+
   embedded_in :exercise, class_name: "Answers::Exercise",  inverse_of: :question
 
   embeds_many :tips, class_name: "Answers::Tip",  inverse_of: :question
@@ -30,5 +33,8 @@ class Answers::Question
     self.tips.where(:number_of_tries.lte => attempt).desc(:number_of_tries)
   end
 
+  def display_tips?(type)
+    display_tips.eql?(type.to_s)
+  end
 end
 

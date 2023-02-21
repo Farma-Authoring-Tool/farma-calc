@@ -2,7 +2,7 @@ class Answers::LastAnswer
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :response
+  field :response 
   field :correct, type: Boolean, default: false
   field :attempt_number, type: Integer
 
@@ -11,8 +11,11 @@ class Answers::LastAnswer
   attr_accessible :question_id, :response, :correct, :attempt_number
 
   def tips
-    #@tips ||= question.tips_for(self.attempt_number)
-    @tips ||= question.tips.reverse
+    if question.display_tips?(:sequential)
+      @tips ||= question.tips_for(self.attempt_number)
+    else
+      @tips ||= question.tips.reverse
+    end
   end
 end
 

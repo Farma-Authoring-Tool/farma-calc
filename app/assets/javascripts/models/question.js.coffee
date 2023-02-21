@@ -31,6 +31,7 @@ class Carrie.Models.Question extends Backbone.RelationalModel
     'cmas_order': true
     'precision': 5
     'correct_feedback': ''
+    'display_tips': ''
 
   toJSON: ->
     id: @get('id')
@@ -42,6 +43,7 @@ class Carrie.Models.Question extends Backbone.RelationalModel
     precision: @get('precision')
     cmas_order: @get('cmas_order')
     many_answers: @get('many_answers')
+    display_tips: @get('display_tips')
     lo_id: @get('exercise').get('lo').get('id')
     exercise_id: @get('exercise').get('id')
 

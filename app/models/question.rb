@@ -16,13 +16,17 @@ class Question
 
   field :correct_feedback, type: String
 
+  DISPLAY_TIPS_OPTIONS = ['sequential', 'all_at_once']
+  field :display_tips, :type => String, default: DISPLAY_TIPS_OPTIONS[0]
+
   default_scope asc(:position)
 
   before_create :set_position
   before_save :set_exp_variables
 
   attr_accessible :id, :title, :content, :correct_answer, :available,
-                  :many_answers, :cmas_order, :precision, :correct_feedback
+                  :many_answers, :cmas_order, :precision, :correct_feedback,
+                  :display_tips
 
   validates_presence_of :title, :content, :correct_answer
   validates_length_of :title, :maximum => 55
@@ -60,6 +64,10 @@ class Question
   def correct_answer=(val)
     super(val)
     set_exp_variables
+  end
+
+  def display_tips?(type)
+    display_tips.eql?(type.to_s)
   end
 
 private
