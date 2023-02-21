@@ -57,7 +57,8 @@ module DeepCloneLo
                             eql_sinal: question.eql_sinal,
                             cmas_order: question.cmas_order,
                             precision: question.precision,
-			    correct_feedback: question.correct_feedback
+                            display_tips: question.display_tips,
+                  			    correct_feedback: question.correct_feedback
 
         question_clone.update_attribute(:position, question.position)
         clone_tips(question, question_clone)
