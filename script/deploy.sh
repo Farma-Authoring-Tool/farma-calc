@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git rebase master
-git push origin production
+git push --force origin production
 
 commands="
   cd ~/farma-calc/farma &&
