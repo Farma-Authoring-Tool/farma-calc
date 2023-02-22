@@ -4,7 +4,13 @@
         <span class="move left">
           <i rel="tooltip" data-original-title="Clique e arraste para ordernar" class="icon-move"></i>
         </span>
-
+        <span class='icon left'>
+          {{#ifCond instance "Exercise" }}
+            <i rel="tooltip" data-original-title="Exercício" class='left  icon-tasks'></i>
+          {{else}}
+            <i rel="tooltip" data-original-title="Introdução" class='left icon-align-justify'></i>
+          {{/ifCond}}
+        </span>
         <span class='icon left'>
           {{#if available }}
             <i rel="tooltip" data-original-title="Publicado" class='left icon-certificate icon-green'></i>
@@ -12,7 +18,7 @@
             <i rel="tooltip" data-original-title="Não Publicado" class='left icon-certificate icon-red'></i>
           {{/if}}
         </span>
-        <h4 class='left'>{{type}}  {{number}}</h4>
+        <h4 class='left'>{{ title }}</h4>
         <p class="content-title">{{title}}</p>
      </div>
 

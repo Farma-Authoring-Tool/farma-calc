@@ -52,7 +52,8 @@ class Lo
         e += 1
         page_count = e
       end
-      { page_name: "#{page.class.model_name.human} #{page_count}: #{page.title}",
+      #{ page_name: "#{page.class.model_name.human} #{page_count}: #{page.title}",
+      { page_name: "#{page.title}",
         type: page.class.to_s.downcase,
         page_collection: page_count-1
       }
