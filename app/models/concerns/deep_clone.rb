@@ -6,6 +6,20 @@ module DeepCloneLo
     clone.run
   end
 
+  def self.clone_exercise(exercise)
+    exercise_clone = Exercise.new title: "Cópia de #{exercise.title} - #{I18n.l Time.now}",
+                                  content: exercise.content,
+                                  available: exercise.available,
+                                  hidden: exercise.hidden
+
+    exercise_clone.lo_id = exercise.lo_id
+    exercise_clone.save!
+    exercise_clone.update_attribute(:position, exercise.position)
+    
+    clone = Clone.new(nil, nil)
+    clone.clone_questions(exercise, exercise_clone)
+  end
+
   class Clone
     def initialize(lo, user)
       @lo = lo
@@ -47,6 +61,7 @@ module DeepCloneLo
       end
     end
 
+    public
     def clone_questions(exercise, exercise_clone)
       exercise.questions.each do |question|
         question_clone = exercise_clone.questions.create! title: question.title,

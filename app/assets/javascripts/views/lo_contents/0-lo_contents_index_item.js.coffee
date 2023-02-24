@@ -8,6 +8,7 @@ class Carrie.Views.LoContentsIndexItem extends Backbone.Marionette.ItemView
     'click .show_content' : 'show'
     'click .edit' : 'edit'
     'click .destroy' : 'destroy'
+    'click .duplicate' : 'duplicate'
 
   questions: (ev) ->
     @prepare(ev)
@@ -36,6 +37,17 @@ class Carrie.Views.LoContentsIndexItem extends Backbone.Marionette.ItemView
             $(@el).fadeOut(800, 'linear')
 
             Carrie.Helpers.Notifications.Top.success "#{@model.get('type')} removido com sucesso!", 4000
+
+  duplicate: (ev) ->
+    @prepare(ev)
+    lo_id = @model.get('lo').id
+    exercise_id = @model.get('id')
+
+    api = "/api/los/#{lo_id}/exercises/#{exercise_id}/duplicate"
+    $.post(api, () =>
+      window.location.reload();
+    ).fail () ->
+       console.log 'Request fail!'
 
   onRender: ->
     @el.id = @model.get('id')

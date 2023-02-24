@@ -1,6 +1,6 @@
 <header class="lo-content">
   <div class="row-fluid">
-     <div class="span9">
+     <div class="span8">
         <span class="move left">
           <i rel="tooltip" data-original-title="Clique e arraste para ordernar" class="icon-move"></i>
         </span>
@@ -22,7 +22,7 @@
         <p class="content-title">{{title}}</p>
      </div>
 
-     <span class='span3 text-right icons'>
+     <span class='span4 text-right icons'>
        {{#ifCond instance "Exercise"}}
         <a href='#' data-id='{{id}}' class="show_questions">
           <i class="icon-tasks"></i> Questões
@@ -33,6 +33,9 @@
        </a>
        <a href='#' data-id='{{id}}' class='edit'>
          <i rel="tooltip" data-original-title="Editar" class="icon-edit"></i>
+       </a>
+       <a href='#' data-id='{{id}}' class='duplicate'>
+         <i rel="tooltip" data-original-title="Duplicar" class="icon-retweet"></i>
        </a>
        <a href='#' data-id='{{id}}' class='destroy'>
          <i rel="tooltip" data-original-title="Remover" class="icon-trash"></i>

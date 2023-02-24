@@ -39,6 +39,17 @@ class ExercisesController < ApplicationController
     respond_with(@lo, @exercise)
   end
 
+  def duplicate
+    @exercise = @lo.exercises.find(params[:exercise_id])
+    
+    require 'concerns/deep_clone.rb'
+    DeepCloneLo.clone_exercise(@exercise)
+
+    respond_to do |format|
+      format.js { head 200 }
+    end
+  end
+
   # Removed on 07/05/2014
   # Because its no long allowed a user clear your answers
   #def delete_last_answers
