@@ -79,6 +79,7 @@ Carrie::Application.routes.draw do
         # Removed on 07/05/2014
         # Because its no long allowed a user clear your answers
         # delete 'delete_last_answers', :on => :member
+        post 'duplicate', action: :duplicate
         resources :questions do
           resources :tips
           collection {post :sort}
