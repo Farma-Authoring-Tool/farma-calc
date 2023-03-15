@@ -1,7 +1,7 @@
 #!/bin/bash
 
-git rebase master
-git push --force origin production
+git merge --no-edit master
+git push origin production
 
 commands="
   cd ~/farma-calc/farma &&
@@ -18,4 +18,3 @@ fi
 commands+=" docker-compose restart web "
 
 ssh deployer@200.134.18.140 -t $commands
-
