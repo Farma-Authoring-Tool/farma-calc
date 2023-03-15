@@ -18,7 +18,7 @@ class Exercise
 
   validates_presence_of :title, :content
   validates :available, :inclusion => {:in => [true, false]}
-  validates_length_of :title, :maximum => 55
+  validates_length_of :title, :maximum => 100
 
   belongs_to :lo
 
