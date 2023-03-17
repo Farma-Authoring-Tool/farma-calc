@@ -5,7 +5,7 @@ git push origin production
 
 commands="
   cd ~/farma-calc/farma &&
-  git pull origin production &&
+  git pull --no-edit origin production &&
   docker-compose exec web bundle install &&
 "
 
