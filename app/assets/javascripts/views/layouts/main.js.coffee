@@ -49,6 +49,7 @@ class Carrie.Views.Layouts.Main extends Backbone.Marionette.Layout
 
 
   onRender: ->
+    $('#farma-subhead').show()
     this.breadcrumb.show @bcb
 
     @menu = $(@el).find('#main-menu')

@@ -11,6 +11,7 @@ class Carrie.Published.Views.Lo extends Backbone.Marionette.ItemView
       retroaction_id: @options.retroaction_id
 
   onRender: ->
+    $('#farma-subhead').hide()
     @el.id = @model.get('id')
     if @model.get('pages_count') > 0
       $(@el).find('.navigator').html(@paginator.render().el)
