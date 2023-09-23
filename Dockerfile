@@ -122,7 +122,7 @@ RUN addgroup --gid $GROUP_ID ${_USER}
 RUN adduser  --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID ${_USER} \
   && usermod -a -G sudo ${_USER} \
   && usermod -a -G staff ${_USER} \
-  && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+  && echo "${_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && echo "${_USER}:${_USER}" | chpasswd
 
 # Configure the main working directory. This is the base

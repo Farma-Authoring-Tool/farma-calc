@@ -1,7 +1,7 @@
 <section class="span12">
 
     <section id="carousel">
-       <div id="headerCarousel" class="carousel slide">
+       <div id="headerCarousel" class="slide">
           <!-- v. 2.3.1
           <ol class="carousel-indicators">
             <li data-target="#headerCarousel" data-slide-to="0" class="active"></li>
@@ -11,15 +11,18 @@
           <!-- Carousel items -->
           <div class="carousel-inner">
             <div class="active item row-fluid">
-              <div class="span3 offset1">
-                <h2>FARMA</h2>
-                  <p>Crie os mais diverso objetos de aprendizagem que envolva conceitos matemáticos</p>
+              <div class="span5">
+                <h2>Ferramenta de Autoria FARMA</h2>
+                  <p>Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem.</p>
                   <p>
-                    Com a FARMA é fácil criar objetos de aprendizagens fácil
+                    Construa Objetos de Aprendizagem para o ensino de matemática
+                  </p>
+                  <p>
+                    <a href="https://farma.educacional.mat.br" target="_blank">Conheça a FARMA</a>
                   </p>
               </div>
 
-              <div class="span8">
+              <div class="span7">
                 <img src="/assets/headers/farma-carousel-header-01.jpg" alt="Matemática" class="img-rounded" />
               </div>
 
@@ -31,7 +34,7 @@
               </div> -->
             </div>
 
-            <div class="item">
+            {{!-- <div class="item">
               <div class="span3 offset1">
                 <h2>Fractais</h2>
                   <p>Utilize os conceitos matemáticos intrísicos dos fracteis para criar objetos de aprendizagem que
@@ -41,9 +44,9 @@
               <div class="span8">
                 <img src="/assets/headers/farma-carousel-header-02.jpg" alt="Matemática" />
               </div>
-            </div>
+            </div> --}}
 
-            <div class="item">
+            {{!-- <div class="item">
               <div class="span3 offset1">
                 <h4>Construa OAs para:</h4>
                 <ul>
@@ -55,51 +58,38 @@
               <div class="span8">
                 <img src="/assets/headers/farma-carousel-header-03.jpg" alt="Matemática" />
               </div>
-            </div>
+            </div> --}}
           </div>
 
           <!-- Carousel nav -->
-          <a class="carousel-control left" href="#headerCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#headerCarousel" data-slide="next">&rsaquo;</a>
+          {{!-- <a class="carousel-control left" href="#headerCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#headerCarousel" data-slide="next">&rsaquo;</a> --}}
        </div>
     </section>
 
     <hr>
     {{ include "home/_info" }}
     <hr>
-    {{ include "home/_screen_shots" }}
+    {{ include "home/_farma-calc" }}
+    <hr>
+    <div class="row-fluid">
+        <div class="span6">
+          {{ include "home/_objectives" }}
+        </div>
+        <div class="span6">
+          {{ include "home/_contact" }}
+        </div>
+    </div>
+
     <hr>
 
-    <footer id="footer" class="row-fluid copyright">
-       <div class="span8">
-          <div>
-             <h3>Objetivos da FARMA</h3>
-             <ul>
-               <li>Permitir a construção de Objetos de Aprendizagem matemáticos</li>
-               <li>Incentivar a construção de OAs na área matemática por parte dos professores</li>
-               <li>Proporcionar um ambiente para construção de OAs matemáticos que seja de fácil utilização</li>
-               <li>Incentivar o uso do erro como uma forma de aprendizagem, por meio das possibilidades:
-                  <ul>
-                    <li>Do professor poder analisar os erros e acertos dos aprendizes</li>
-                    <li>Do professor e/ou aluno retroceder aos erros e acertos dos aprendizes</li>
-                    <li>Permitir a troca remota de mensagens entre professores e aprendizes sobre os erros e acertos</li>
-                  </ul>
-               </li>
+    <footer id="footer" class="copyright">
+      {{ include "home/_team" }}
 
-               <li>Oferecer mecanismos que permitam a construção de exercícios que incentivem
-                   desenvolvimento gradual da capacidade de abstração do aprendiz</li>
-               <li>Incentiver a remediação de erros por meio de dicas elaboradas</li>
-               <li>Permitir mobilidade educacional</li>
-               <li>Promover avaliação formativa</li>
-             </ul>
-           <div class='center footer'>
-             <p>Projeto desolvido no programa de Pós-graduação da Universidade Federal do Paraná.</p>
-             <a href="inf.ufpr.br">UFPR</a>
-           </div>
-          </div>
-       </div>
-       <div class="span4">
-         {{ include "home/_contact" }}
-       </div>
+      <div class='center'>
+        <p>Projeto Desenvolvido no Programa de Pós-Graduação de Ensino de Ciência e Tecnologia<br>
+        Universidade Tecnológica Federal do Paraná UTFPR.</p>
+      </div>
     </footer>
+    
 </section>
