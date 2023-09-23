@@ -1,7 +1,10 @@
 host:
-  production: 'farma.educacional.mat.br'
-  development: 'localhost:3000'
+  production: "farma.educacional.mat.br"
+  development: "localhost:3000"
 
 experiment:
   control_group: ["53e9fa9f759b743c2d00002f"]
   access_group: []
+
+email:
+  account: "alexs@professores.utfpr.edu.br"

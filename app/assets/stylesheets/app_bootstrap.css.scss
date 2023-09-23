@@ -48,3 +48,12 @@
 .icon-red { color: red; }
 .icon-green { color: green; }
 span.icon i {margin-right: 5px;}
+
+.navbar-inverse .brand, .navbar-inverse .nav > li > a, #header_right_menu .btn-clean, #header_right_menu .icon-signin  {
+  color: #00D148 !important;
+  font-weight: bold !important;
+}
+
+.text-center {
+  text-align: center;
+}
