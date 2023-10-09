@@ -4,6 +4,10 @@ class HomeController < ApplicationController
   end
 
   def lo_example
-    @lo = Lo.first
+    begin
+      @lo = Lo.find('65170326b1063e851800001a')
+    rescue
+      @lo = Lo.first
+    end
   end
 end
