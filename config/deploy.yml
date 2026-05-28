@@ -6,6 +6,9 @@ servers:
   web:
     - 172.20.11.20
 
+ssh:
+  user: tsi
+
 proxy:
   ssl: true
   host: farma-calcc.educacional.mat.br
@@ -16,7 +19,6 @@ proxy:
     timeout: 5
 
 registry:
-  server: ghcr.io
   username:
     - KAMAL_REGISTRY_USERNAME
   password:
@@ -24,6 +26,7 @@ registry:
 
 builder:
   arch: amd64
+  context: .
   dockerfile: Dockerfile.prod
 
 env:
