@@ -18,3 +18,9 @@ doc/*.png
 lib/tasks/test.rake
 spec/data
 config/application.yml
+.env
+.env.*
+!.env.example
+.kamal/secrets
+.kamal/secrets.*
+!.kamal/secrets.example

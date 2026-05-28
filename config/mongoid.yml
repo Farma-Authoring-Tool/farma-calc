@@ -2,8 +2,8 @@
 production:
   sessions:
     default:
-      database: farma_production
+      database: <%= ENV.fetch("MONGODB_DATABASE", "farma_production") %>
       hosts:
-        - db
+        - <%= ENV.fetch("MONGODB_HOST", "db") %>
       options:
         consistency: :strong
