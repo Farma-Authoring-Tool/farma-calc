@@ -66,8 +66,8 @@ ARG GROUP_ID=1000
 RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list \
   && sed -i 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list \
   && sed -i '/stretch-updates/d' /etc/apt/sources.list \
-  && apt-get -o Acquire::Check-Valid-Until=false update -qq && \
-  apt-get install -y curl          \
+  && apt-get -o Acquire::Check-Valid-Until=false -o Acquire::AllowInsecureRepositories=true update -qq && \
+  apt-get install -y --allow-unauthenticated curl          \
   libpq-dev     \
   libxml2-dev   \
   libgmp-dev    \
@@ -154,6 +154,7 @@ RUN gem install bundler -v 1.7.6 \
   && gem install rack -v 2.1.4.1 \
   # && gem install json -v 1.8.3 \
   && gem install rack-cache -v 1.9.0 \ 
+  && gem install multi_json -v 1.15.0 \
   # && gem install eventmachine -v 1.0.9 \
   # && gem install rubygems-bundler -v 1.4.4 \
   #&& gem install sprockets -v 3.7.0  \
