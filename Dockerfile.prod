@@ -30,12 +30,19 @@ RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /
 # --------------------------
 # INSTALL NODEJS BY NVM
 # --------------------------
-ARG NODE_VERSION=12.16.3
-ARG NVM_DIR=/usr/local/nvm
+ENV NODE_VERSION=12.16.3
+ENV NVM_DIR=/usr/local/nvm
 
-RUN mkdir $NVM_DIR && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+RUN mkdir $NVM_DIR \
+  && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+  && . $NVM_DIR/nvm.sh \
+  && nvm install $NODE_VERSION \
+  && nvm alias default $NODE_VERSION \
+  && ln -sf $NVM_DIR/versions/node/v$NODE_VERSION/bin/node /usr/local/bin/node \
+  && ln -sf $NVM_DIR/versions/node/v$NODE_VERSION/bin/npm /usr/local/bin/npm \
+  && ln -sf $NVM_DIR/versions/node/v$NODE_VERSION/bin/npx /usr/local/bin/npx
 
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN node -v
@@ -72,6 +79,7 @@ RUN gem install bundler -v 1.7.6 \
   && gem install rack -v 2.1.4.1 \
   && gem install rack-cache -v 1.9.0 \
   && gem install multi_json -v 1.15.0 \
+  && gem install thor -v 0.17.0 \
   && gem install rails -v 3.2.12
 
 COPY --chown=${_USER}:${_USER} Gemfile Gemfile.lock ./
