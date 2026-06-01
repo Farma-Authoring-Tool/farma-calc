@@ -11,7 +11,7 @@ ssh:
 
 proxy:
   ssl: true
-  host: farma-calcc.educacional.mat.br
+  host: farma-calc.educacional.mat.br
   app_port: 3000
   healthcheck:
     path: /
