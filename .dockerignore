@@ -1,0 +1,14 @@
+.git
+.bundle
+.kamal/secrets
+.kamal/secrets.*
+.env
+.env.*
+log/*
+tmp/*
+.sass-cache
+.DS_Store
+public/assets
+public/ckeditor_assets/*
+db/dump
+spec/data

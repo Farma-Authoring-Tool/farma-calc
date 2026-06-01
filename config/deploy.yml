@@ -1,0 +1,59 @@
+service: farma-calc
+
+image: dmarczal/farma-calc
+
+servers:
+  web:
+    - 172.20.11.20
+
+ssh:
+  user: tsi
+
+proxy:
+  ssl: true
+  host: farma-calc.educacional.mat.br
+  app_port: 3000
+  healthcheck:
+    path: /
+    interval: 3
+    timeout: 5
+
+registry:
+  username:
+    - KAMAL_REGISTRY_USERNAME
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+  context: .
+  dockerfile: Dockerfile.prod
+
+env:
+  clear:
+    RAILS_ENV: production
+    RAILS_SERVE_STATIC_FILES: "1"
+    MONGODB_HOST: farma-calc-mongo
+    MONGODB_DATABASE: farma_production
+  secret:
+    - GMAIL_USERNAME
+    - GMAIL_PASSWORD
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  ssh: server exec --interactive "bash -l"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+volumes:
+  - farma_calc_ckeditor_assets:/var/www/farma/public/ckeditor_assets
+
+accessories:
+  mongo:
+    image: mongo:4.4.6
+    host: 172.20.11.20
+    service: farma-calc-mongo
+    port: "127.0.0.1:27888:27017"
+    directories:
+      - data:/data/db

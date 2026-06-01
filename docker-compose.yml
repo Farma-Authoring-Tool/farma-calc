@@ -1,9 +1,8 @@
-version: '3.8'
 x-app: &app
   user: devel:devel
   build:
     context: .
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.dev
   volumes:
     - .:/var/www/farma
     - bundle_path:/bundle
@@ -28,8 +27,8 @@ services:
       - 3000:3000
     environment:
       RAILS_ENV: production
-      GMAIL_USERNAME: farma.ufpr@gmail.com
-      GMAIL_PASSWORD: rcjulgixpybnbnop
+      GMAIL_USERNAME: ${GMAIL_USERNAME:-farma.ufpr@gmail.com}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
       RAILS_SERVE_STATIC_FILES: 1
     depends_on:
       - db
