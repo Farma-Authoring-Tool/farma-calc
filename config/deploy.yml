@@ -39,6 +39,13 @@ env:
     - GMAIL_USERNAME
     - GMAIL_PASSWORD
 
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  ssh: server exec --interactive "bash -l"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
 volumes:
   - farma_calc_ckeditor_assets:/var/www/farma/public/ckeditor_assets
 

@@ -159,4 +159,4 @@ RUN gem install bundler -v 1.7.6 \
   # && gem install rubygems-bundler -v 1.4.4 \
   #&& gem install sprockets -v 3.7.0  \
   #&& gem install nokogiri -v 1.6.8.1 \
-  && gem install rails -v 3.2.12
+  && gem install rails -v 3.2.22.5

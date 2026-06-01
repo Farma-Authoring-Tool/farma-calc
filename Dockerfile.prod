@@ -80,7 +80,7 @@ RUN gem install bundler -v 1.7.6 \
   && gem install rack-cache -v 1.9.0 \
   && gem install multi_json -v 1.15.0 \
   && gem install thor -v 0.17.0 \
-  && gem install rails -v 3.2.12
+  && gem install rails -v 3.2.22.5
 
 COPY --chown=${_USER}:${_USER} Gemfile Gemfile.lock ./
 RUN bundle install --deployment --without development test

@@ -24,3 +24,4 @@ config/application.yml
 .kamal/secrets
 .kamal/secrets.*
 !.kamal/secrets.example
+.idea/*
